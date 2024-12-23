@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react";
 import PlantList from "./PlantList";
-import Header from "./Header";
-import PlantPage from "./PlantPage";
+import NewPlantForm from "./NewPlantForm";
+// import Header from "./Header";
+// import PlantPage from "./PlantPage";
 
 function App() {
   const [plants, setPlants] = useState ([]);
@@ -12,12 +13,27 @@ function App() {
   .then((data) => setPlants(data));
 }, []);
 
+function handleAddPlant(newPlant) {
+  fetch("http://localhost:6001/plants", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newPlant),
+  })
+  .then((response) => response.json())
+  .then ((addPlant) => {
+    setPlants((prevPlants) => [...prevPlants,addPlant]);
+  });
+}
+
   return (
     <div className="app">
       <h1>Plantsy</h1>
       <PlantList plants={plants} />
-      <Header />
-      <PlantPage />
+      <NewPlantForm onAddPlant={handleAddPlant} />
+      {/* <Header />
+      <PlantPage /> */}
     </div>
   );
 }

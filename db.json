@@ -41,6 +41,12 @@
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "name": "Spider plant",
+      "image": "https://www.thespruce.com/spider-plants-chlorophytum-definition-1902773",
+      "price": 40,
+      "id": 8
     }
   ]
 }
