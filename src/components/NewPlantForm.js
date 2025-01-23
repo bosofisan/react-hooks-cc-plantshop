@@ -22,6 +22,7 @@ function NewPlantForm({onAddPlant}) {
       ...formData, 
       price: parseFloat(formData.price), 
     };
+    
     onAddPlant(newPlant);
 
     setFormData({
