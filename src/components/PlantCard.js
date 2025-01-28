@@ -18,7 +18,7 @@ function PlantCard({ plant, onUpdatePlant }) {
 
     fetch(`http://localhost:6001/plants/${id}`, {
       method: "PATCH",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "Application/JSON" },
       body: JSON.stringify({ isSoldOut: !newStockStatus }), 
     })
       .then((response) => {
@@ -44,7 +44,7 @@ function PlantCard({ plant, onUpdatePlant }) {
   function handleSaveClick() {
     fetch(`http://localhost:6001/plants/${id}`, {
       method: "PATCH",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "Application/JSON" },
       body: JSON.stringify({ price: parseFloat(newPrice) }),
     })
       .then((response) => {
@@ -52,8 +52,8 @@ function PlantCard({ plant, onUpdatePlant }) {
         return response.json();
       })
       .then((updatedPlant) => {
-        onUpdatePlant(updatedPlant); // Update parent state with the patched plant
-        setIsEditing(false); // Exit edit mode
+        onUpdatePlant(updatedPlant);
+        setIsEditing(false);
       })
       .catch((error) => console.error("Error updating price:", error));
   }
@@ -62,7 +62,6 @@ function PlantCard({ plant, onUpdatePlant }) {
     <li className="card" data-testid="plant-item">
       <img src={image} alt={name} />
       <h4>{name}</h4>
-      {/* Inline price editing */}
       {isEditing ? (
         <div>
           <input
@@ -82,8 +81,6 @@ function PlantCard({ plant, onUpdatePlant }) {
           </button>
         </>
       )}
-  
-      {/* Stock toggle functionality */}
       {isInStock ? (
         <button className="primary" onClick={handleStockToggle}>
           In Stock
