@@ -44,7 +44,7 @@
     },
     {
       "name": "Spider plant",
-      "image": "https://www.thespruce.com/spider-plants-chlorophytum-definition-1902773",
+      "image": "./images/spider.jpg",
       "price": 40,
       "id": 8
     }
