@@ -9,7 +9,7 @@ function PlantCard({ plant, onUpdatePlant }) {
 
   useEffect(() => {
     setNewPrice(price);
-  }, [price]);
+  }, []);
 
   // Handle toggling stock status
   function handleStockToggle() {
