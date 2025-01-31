@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 function PlantCard({ plant, onUpdatePlant }) {
   const { id, name, image, price, isSoldOut } = plant;
@@ -6,10 +6,6 @@ function PlantCard({ plant, onUpdatePlant }) {
   const [isEditing, setIsEditing] = useState(false);
   const [newPrice, setNewPrice] = useState(price);
   const [isInStock, setIsInStock] = useState(!isSoldOut);
-
-  useEffect(() => {
-    setNewPrice(price);
-  }, []);
 
   // Handle toggling stock status
   function handleStockToggle() {
